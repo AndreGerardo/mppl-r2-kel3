@@ -19,7 +19,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const LoginForm = (props) => {
-
   const classes = useStyles();
   const router = useRouter();
   const [alertMessage, setAlertMessage] = useState({ status: "", message: "" });
@@ -33,7 +32,7 @@ const LoginForm = (props) => {
     username: Yup.string().required("Username wajib diisi!"),
     password: Yup.string().required("Password wajib diisi!"),
   });
-  
+
   const handleLogin = async ({ username, password }, { setSubmitting }) => {
     // console.log(username, password)
     await axios
@@ -44,10 +43,21 @@ const LoginForm = (props) => {
       .then((response) => {
         const cookies = new Cookies();
         const { content } = response.data
-        token = content.data.Token
-        user = content.data
-        localStorage.setItem("user", JSON.stringify(user));
-        cookies.set('user', user, {path: '/'})
+        let isManager = false
+        let token = null
+        let user = null
+        if (content?.token) {
+          // untuk manager
+          isManager = true;
+          token = content.token
+        }
+        else {
+          // untuk employee
+          token = content.data.Token
+          user = content.data
+          localStorage.setItem("user", JSON.stringify(user));
+          cookies.set('user', user, {path: '/'})
+        }
         
         // simpan data ke localstorage dan cookies
         setAlertMessage({ status: "success", message: "Login berhasil!" });
@@ -55,7 +65,10 @@ const LoginForm = (props) => {
         cookies.set('auth-token', token, {path: '/'})
 
         setTimeout(() => {
+          if (isManager) router.push("/manager")
+          else {
             router.push("/dashboard");
+          }
         }, 500);
       })
       .catch((error) => {

@@ -34,7 +34,6 @@ const LoginForm = (props) => {
   });
 
   const handleLogin = async ({ username, password }, { setSubmitting }) => {
-    // console.log(username, password)
     await axios
       .post(process.env.NEXT_PUBLIC_BACKEND_URL + "/login", {
         username,

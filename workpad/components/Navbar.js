@@ -233,8 +233,8 @@ export default function Navbar({ children, /* user, token, isManager */}) {
         </List>
         <Divider />
         <List>
-          {/* isAdmin && mainItemAdmin*/ mainItemUser}
-          {/* !isAdmin && mainItemUser */}
+          {/* isManager && mainItemManager*/ mainItemUser}
+          {/* !isManager && mainItemUser */}
         </List>
       </Drawer>
       <main className={classes.content}>

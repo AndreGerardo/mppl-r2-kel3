@@ -15,6 +15,10 @@ export async function getServerSideProps(context) {
       },
     };
   const user = JSON.parse(context.req.cookies["user"]);
+  const res = await axios.get(
+    process.env.NEXT_PUBLIC_BACKEND_URL + "/jadwal/my",
+    options
+  );
   const { data } = await res;
   return {
     props: { user, token, data }, // Will be passed to the page component as props

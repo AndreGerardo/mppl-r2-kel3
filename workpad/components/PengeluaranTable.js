@@ -70,11 +70,12 @@ const PengeluaranTable = ({ /*data*/ }) => {
               </TableBody>
                 ))*/}
 
+            {/* Hapus aja yang di bawah ini kalau udah connect BE */}
             <TableBody key={"Pengeluaran"}>
               <TableRow key={"row.TransaksiOut"}>
                 <TableCell align="center" component="th" scope="row">{"5/10/2021"}</TableCell>
                 <TableCell align="center">{"Rp. 200.000,00"}</TableCell>
-                <TableCell align="center">{"1"}</TableCell>
+                <TableCell align="center">{"Hosting"}</TableCell>
                 <TableCell align="center">{"Ubah"}</TableCell>
               </TableRow>
             </TableBody>

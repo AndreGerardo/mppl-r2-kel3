@@ -35,12 +35,12 @@ const useStyles = makeStyles({
   },
 });
 
-const PendapatanTable = ({ /*data*/ }) => {
+const LaporanTable = ({ /*data*/ }) => {
   const classes = useStyles();
   return (
     <Card className={classes.card}>
       <Box className={classes.header}>
-        <Typography variant="h6">Transaksi Masuk</Typography>
+        <Typography variant="h6">Laporan Keuangan</Typography>
       </Box>
       <CardContent>
         <TableContainer component={Paper} elevation={0}>
@@ -51,32 +51,29 @@ const PendapatanTable = ({ /*data*/ }) => {
           >
             <TableHead className={classes.tableHead}>
               <TableRow>
-                <TableCell align="center">Tanggal</TableCell>
-                <TableCell align="center">Nominal</TableCell>
-                <TableCell align="center">Kategori</TableCell>
-                <TableCell align="center">Opsi</TableCell>
+                <TableCell align="center">Nama</TableCell>
+                <TableCell align="center">Jumlah Transaksi</TableCell>
+                <TableCell align="center">Total Uang</TableCell>
               </TableRow>
             </TableHead>
             {/* data.map((d) => (
-              <TableBody key={d.Pendapatan}>
-                {d.ListPendapatan.map((row) => (
-                  <TableRow key={row.TransaksiIn}>
-                    <TableCell align="center" component="th" scope="row">{row.Tanggal "5/10/2021"}</TableCell>
-                    <TableCell align="center">{row.Nominal "Rp. 200.000,00"}</TableCell>
-                    <TableCell align="center">{row.Kategori "1"}</TableCell>
-                    <TableCell align="center">{row.Opsi}</TableCell>
+              <TableBody key={d.Keuangan}>
+                {d.ListKeuangan.map((row) => (
+                  <TableRow key={row.KategoriKeuangan}>
+                    <TableCell align="center" component="th" scope="row">{row.Nama "Pemasukan"}</TableCell>
+                    <TableCell align="center">{row.Jumlah Transaksi "15"}</TableCell>
+                    <TableCell align="center">{row.Total Uang "Rp. 42.000.000,00"}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>
                 ))*/}
-
+            
             {/* Hapus aja yang di bawah ini kalau udah connect BE */}
-            <TableBody key={"Pendapatan"}>
-              <TableRow key={"row.TransaksiIn"}>
-                <TableCell align="center" component="th" scope="row">{"5/10/2021"}</TableCell>
-                <TableCell align="center">{"Rp. 200.000,00"}</TableCell>
-                <TableCell align="center">{"Instalasi Software"}</TableCell>
-                <TableCell align="center">{"Ubah"}</TableCell>
+            <TableBody key={"Keuangan"}>
+              <TableRow key={"row.KategoriKeuangan"}>
+                <TableCell align="center" component="th" scope="row">{"Pemasukan"}</TableCell>
+                <TableCell align="center">{"15"}</TableCell>
+                <TableCell align="center">{"Rp. 42.000.000,00"}</TableCell>
               </TableRow>
             </TableBody>
           </Table>
@@ -86,4 +83,4 @@ const PendapatanTable = ({ /*data*/ }) => {
   );
 };
 
-export default PendapatanTable;
+export default LaporanTable;

@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../../components/Navbar";
-import { Tab, Tabs, Box, Typography } from "@material-ui/core";
+import { Tab, Tabs, Box, Typography, Button, Grid } from "@material-ui/core";
 import PropTypes from "prop-types";
 import PendapatanTable from "../../components/PendapatanTable";
 import PengeluaranTable from "../../components/PengeluaranTable";
@@ -77,10 +77,48 @@ export default function Transaksi() {
             </Tabs>
         </Box>
         <TabPanel value={value} index={0}>
-            <PendapatanTable /*data={data}*/ />
+          <Grid
+            container
+            spacing={2}
+            direction="column"
+            justify="center"
+          >
+            <Grid item xs={15}>
+              <Button
+              variant="contained"
+              href="/transaksi/PendapatanForm"
+              color="secondary"
+              margin="normal"
+              >
+                Tambah Pemasukan
+              </Button>
+            </Grid>
+            <Grid item xs={15}>
+              <PendapatanTable /*data={data}*/ />
+            </Grid>
+          </Grid>
         </TabPanel>
         <TabPanel value={value} index={1}>
-            <PengeluaranTable /*data={data}*/ />
+          <Grid
+            container
+            spacing={2}
+            direction="column"
+            justify="center"
+          >
+            <Grid item xs={15}>
+              <Button
+                variant="contained"
+                href="/transaksi/PengeluaranForm"
+                color="secondary"
+                margin="normal"
+              >
+                Tambah Pengeluaran
+              </Button>
+            </Grid>
+            <Grid item xs={15}>
+              <PengeluaranTable /*data={data}*/ />
+            </Grid>
+          </Grid>
         </TabPanel>
       </Box>
     </Navbar>

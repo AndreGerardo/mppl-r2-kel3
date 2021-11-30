@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../../components/Navbar";
-import { Tab, Tabs, Box, Typography } from "@material-ui/core";
+import { Tab, Tabs, Box, Typography, Button, Grid } from "@material-ui/core";
 import PropTypes from "prop-types";
 import KaryawanTable from "../../components/KaryawanTable";
 import TaskTable from "../../components/TaskTable";
@@ -77,10 +77,48 @@ export default function Karyawan() {
             </Tabs>
         </Box>
         <TabPanel value={value} index={0}>
-          <KaryawanTable /*data={data}*/ />
+          <Grid
+            container
+            spacing={2}
+            direction="column"
+            justify="center"
+          >
+            <Grid item xs={15}>
+              <Button
+              variant="contained"
+              href="/transaksi/KaryawanForm"
+              color="secondary"
+              margin="normal"
+              >
+                Tambah Karyawan
+              </Button>
+            </Grid>
+            <Grid item xs={15}>
+              <KaryawanTable /*data={data}*/ />
+            </Grid>
+          </Grid>
         </TabPanel>
         <TabPanel value={value} index={1}>
-          <TaskTable /*data={data}*/ />
+          <Grid
+            container
+            spacing={2}
+            direction="column"
+            justify="center"
+          >
+            <Grid item xs={15}>
+              <Button
+              variant="contained"
+              href="/transaksi/TaskForm"
+              color="secondary"
+              margin="normal"
+              >
+                Tambah Task
+              </Button>
+            </Grid>
+            <Grid item xs={15}>
+              <TaskTable /*data={data}*/ />
+            </Grid>
+          </Grid>
         </TabPanel>
       </Box>
     </Navbar>

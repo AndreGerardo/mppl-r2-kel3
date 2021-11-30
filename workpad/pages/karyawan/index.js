@@ -86,7 +86,7 @@ export default function Karyawan() {
             <Grid item xs={15}>
               <Button
               variant="contained"
-              href="/transaksi/KaryawanForm"
+              href="/tambahKaryawan"
               color="secondary"
               margin="normal"
               >

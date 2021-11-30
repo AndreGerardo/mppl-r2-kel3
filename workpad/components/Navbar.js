@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    backgroundColor: "#FFFFFF",
+    backgroundColor: "#0B81EF",
   },
   appBarShift: {
     marginLeft: drawerWidth,
@@ -74,7 +74,7 @@ const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
     }),
-    backgroundColor: "#0B81EF",
+    backgroundColor: "#fff",
   },
   drawerPaperClose: {
     overflowX: "hidden",
@@ -86,7 +86,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("sm")]: {
       width: theme.spacing(9),
     },
-    backgroundColor: "#0B81EF",
+    backgroundColor: "#fff",
   },
   appBarSpacer: theme.mixins.toolbar,
   content: {

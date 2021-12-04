@@ -1,6 +1,5 @@
 import Grid from "@material-ui/core/Grid"
-import LoginForm from "../components/LoginForm";
-import FirebaseForm from "../components/FirebaseLoginForm";
+import RegisterForm from "../../components/FirebaseRegisterForm";
 
 export default function Home() {
   return (
@@ -13,7 +12,7 @@ export default function Home() {
       style={{ minHeight: "100vh", backgroundColor: "#f5f5f5" }}
     >
       <Grid item xs={3}>
-        <FirebaseForm />
+        <RegisterForm />
       </Grid>
     </Grid>
   );

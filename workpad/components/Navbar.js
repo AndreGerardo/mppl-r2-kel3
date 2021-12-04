@@ -25,6 +25,9 @@ import PropTypes from "prop-types";
 import Cookies from "universal-cookie";
 import { useRouter } from "next/router";
 
+import { signOut, onAuthStateChanged } from "@firebase/auth";
+import { auth } from "../firebase/firebaseInit";
+
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -133,6 +136,20 @@ export default function Navbar({ children, /* user, token, isManager */}) {
     setAnchorEl(null);
   };
 
+  //FIREBASE
+  const [user, setUser] = useState({});
+
+  onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser);
+  });
+
+  const handleLogout = async () => {
+    await signOut(auth)
+    .then(() => {
+      router.push("/");
+    });
+  };
+
  /* const handleLogout = () => {
     const cookies = new Cookies();
     // delete all for logout
@@ -201,8 +218,8 @@ export default function Navbar({ children, /* user, token, isManager */}) {
               open={nomi}
               onClose={handleClose}
             >
-              <MenuItem onClick={handleClose}>{'Employee' /* user.Nama */}</MenuItem>
-              <MenuItem /* onClick={handleLogout} */>Logout</MenuItem>
+              <MenuItem onClick={handleClose}>{user?.email /* user.Nama */}</MenuItem>
+              <MenuItem  onClick={handleLogout} >Logout</MenuItem>
             </Menu>
           </div>
         </Toolbar>
@@ -227,7 +244,7 @@ export default function Navbar({ children, /* user, token, isManager */}) {
               <ListItemIcon>
                 <AccountCircleIcon />
               </ListItemIcon>
-              <ListItemText primary={'Employee' /* user.Nama */} />
+              <ListItemText primary={user?.email /* user.Nama */} />
             </ListItem>
           </div>
         </List>
